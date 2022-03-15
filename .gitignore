@@ -44,3 +44,22 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+## Generated code
+*.gen.dart
+*.g.dart
+*.freezed.dart
+*.gr.dart
+*.pb.dart
+*.pbenum.dart
+*.pbjson.dart
+l10n*.dart
+
+## Test coverage
+coverage/
+
+# fvm
+.fvm/flutter_sdk
+
+# npm
+node_modules/
