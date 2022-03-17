@@ -7,6 +7,7 @@ import 'package:github/models/entities/user.dart';
 import 'package:github/models/converters/date_time_converter.dart';
 
 part 'repository.freezed.dart';
+part 'repository.g.dart';
 
 @freezed
 class Repository with _$Repository {

@@ -4,6 +4,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:github/models/entities/repository.dart';
 
 part 'search_repositories_response.freezed.dart';
+part 'search_repositories_response.g.dart';
 
 @freezed
 class SearchRepositoriesResponse with _$SearchRepositoriesResponse {
