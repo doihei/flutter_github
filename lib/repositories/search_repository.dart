@@ -1,10 +1,10 @@
 import 'package:dio/dio.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:github/models/apis/api_client.dart';
+import 'package:github/models/apis/github_dio.dart';
 
 import 'package:github/models/responses/search_repositories_response.dart';
 
-final searchRepositoryProvider = Provider((ref) => SearchRepository(ref.watch(apiClientProvider)));
+final searchRepositoryProvider = Provider((ref) => SearchRepository(ref.watch(githubDioProvider)));
 
 abstract class SearchRepository {
   factory SearchRepository(Dio dio) = _SearchRepository;

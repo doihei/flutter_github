@@ -3,12 +3,12 @@ import 'package:dio/adapter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logger/logger.dart';
 
-final apiClientProvider = Provider<Dio>((_) => ApiClient.getInstance());
+final githubDioProvider = Provider<Dio>((_) => GithubDio.getInstance());
 
 final logger = Logger();
 
-class ApiClient with DioMixin implements Dio {
-  ApiClient._([BaseOptions? options]) {
+class GithubDio with DioMixin implements Dio {
+  GithubDio._([BaseOptions? options]) {
     options = BaseOptions(
         headers: {
           "accept": "application/vnd.github.v3+json",
@@ -33,5 +33,5 @@ class ApiClient with DioMixin implements Dio {
     httpClientAdapter = DefaultHttpClientAdapter();
   }
 
-  static Dio getInstance() => ApiClient._();
+  static Dio getInstance() => GithubDio._();
 }
