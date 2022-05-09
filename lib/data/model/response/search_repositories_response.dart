@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // entity
-import 'package:github/models/entities/repository.dart';
+import 'package:github/data/model/entity/repository.dart';
 
 part 'search_repositories_response.freezed.dart';
 part 'search_repositories_response.g.dart';

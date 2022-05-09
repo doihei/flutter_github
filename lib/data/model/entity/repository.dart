@@ -1,10 +1,10 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // entity
-import 'package:github/models/entities/user.dart';
+import 'package:github/data/model/entity/user.dart';
 
 // converter
-import 'package:github/models/converters/date_time_converter.dart';
+import 'package:github/utils/converters/date_time_converter.dart';
 
 part 'repository.freezed.dart';
 part 'repository.g.dart';

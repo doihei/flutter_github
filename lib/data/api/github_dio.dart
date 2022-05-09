@@ -13,7 +13,11 @@ class GithubDio with DioMixin implements Dio {
         headers: {
           "accept": "application/vnd.github.v3+json",
         },
-        baseUrl: "https://api.github.com"
+        baseUrl: "https://api.github.com",
+        connectTimeout: 15000,
+        sendTimeout: 15000,
+        receiveTimeout: 15000,
+        responseType: ResponseType.json,
     );
     this.options = options;
 

@@ -1,19 +1,19 @@
 import 'package:dio/dio.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:github/models/apis/github_dio.dart';
+import 'package:github/data/api/github_dio.dart';
 
-import 'package:github/models/responses/search_repositories_response.dart';
+import 'package:github/data/model/response/search_repositories_response.dart';
 
-final searchRepositoryProvider = Provider((ref) => SearchRepository(ref.watch(githubDioProvider)));
+final searchRepositoriesDataSourceProvider = Provider((ref) => SearchRepositoriesDataSource(ref.watch(githubDioProvider)));
 
-abstract class SearchRepository {
-  factory SearchRepository(Dio dio) = _SearchRepository;
+abstract class SearchRepositoriesDataSource {
+  factory SearchRepositoriesDataSource(Dio dio) = _SearchRepositoriesDataSource;
   Future<SearchRepositoriesResponse> searchRepositories(String q);
 }
 
-class _SearchRepository implements SearchRepository {
+class _SearchRepositoriesDataSource implements SearchRepositoriesDataSource {
   final Dio _dio;
-  _SearchRepository(this._dio);
+  _SearchRepositoriesDataSource(this._dio);
 
   @override
   Future<SearchRepositoriesResponse> searchRepositories(String q) async {
@@ -22,15 +22,13 @@ class _SearchRepository implements SearchRepository {
     };
     final options = Options(
       method: 'GET',
-      responseType: ResponseType.json,
     )
         .compose(
           _dio.options,
           '/search/repositories',
-          queryParameters: queryParameters,
-    )
-        .copyWith(
-          baseUrl: _dio.options.baseUrl,
+          queryParameters: {
+            'q': q,
+          },
     );
 
     final response = await _dio.fetch(options);
